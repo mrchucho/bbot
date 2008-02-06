@@ -1,3 +1,4 @@
+* Counter cache for comments on Post, would that help post_sweeper?
 * DONE Textile <-> HTML
 * DONE RSS feeds
 * Cocoa Editor using ActiveResource

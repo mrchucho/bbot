@@ -1,0 +1,19 @@
+<p>
+  <b>Post:</b>
+  <%=h @comment.post.title %>
+  <%= link_to 'show', @post %>
+</p>
+
+<p>
+  <b>Author:</b>
+  <%=h @comment.author %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%=  @comment.body %>
+</p>
+
+
+<%= link_to 'Edit', edit_post_comment_path(@post,@comment) %> |
+<%= link_to 'Back', post_comments_path(@post) %>

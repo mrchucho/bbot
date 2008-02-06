@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
-  # FIXME
-  # Need to make this such that no one can create
-  # a new user except me... or something.
+  before_filter :forbidden
    
   def new
   end
@@ -22,5 +20,8 @@ class UsersController < ApplicationController
       render :action => 'new'
     end
   end
-
+private
+  def forbidden
+    head(:forbidden)
+  end
 end

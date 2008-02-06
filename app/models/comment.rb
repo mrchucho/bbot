@@ -1,7 +1,7 @@
-class Post < ActiveRecord::Base
-  has_many :comments
+class Comment < ActiveRecord::Base
+  belongs_to :post
   before_save :convert_body
-  attr_protected :body
+  attr_protected :post_id,:body
 
 private
 include ActionView::Helpers::TextHelper
