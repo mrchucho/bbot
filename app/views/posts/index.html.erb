@@ -1,0 +1,26 @@
+<h1>Listing posts</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Category</th>
+    <th>Body</th>
+  </tr>
+
+<% for post in @posts %>
+  <tr>
+    <td><%=h post.title %></td>
+    <td><%=h post.category %></td>
+    <td><%=  post.body %></td>
+    <td><%= link_to 'Show', post %></td>
+    <td><%= link_to 'Edit', edit_post_path(post) %></td>
+    <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to "RSS Feed", formatted_posts_url(:rss) %>
+<%= link_to "Atom Feed", formatted_posts_url(:atom) %>
+<%= link_to 'New post', new_post_path %>
