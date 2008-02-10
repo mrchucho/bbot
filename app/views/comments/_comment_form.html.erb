@@ -1,0 +1,19 @@
+<ul>
+  <li class="">
+  <label class="desc" for="comment_author">Author</label>
+  <div><%= f.text_field :author, :class => 'field text'%></div>
+  </li>
+  <li class="">
+  <label class="desc" for="comment_author_email">Email <small>(not shown)</small></label>
+  <div><%= f.text_field :author_email, :class => 'field text'%></div>
+  </li>
+  <li class="">
+  <label class="desc" for="comment_author_site">Site</label>
+  <div><%= f.text_field :author_site, :class => 'field text'%></div>
+  </li>
+  <li class="">
+  <label class="desc" for="comment_body_raw">Comment <small>(textile supported)</small></label>
+  <div><%= f.text_area :body_raw,:rows => 10,:cols => 60,:class => 'field textarea'%></div>
+  
+  </li>
+</ul>

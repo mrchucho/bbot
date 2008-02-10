@@ -1,18 +1,16 @@
-<p>
-  <b>Name:</b>
-  <%=h @post.title %>
-</p>
+<% content_for :title do -%>
+<%= title(h(@post.title)) %>
+<% end -%>
 
-<p>
-  <b>Category:</b>
-  <%=h @post.category %>
-</p>
+<%= render :partial => 'post' %>
 
-<p>
-  <b>Body:</b>
-  <%= @post.body %>
-</p>
+<h3 id="post_comments">Responses to &quot;<%=h @post.title%>&quot;</h3>
+<% unless @post.comments.empty? -%>
+<%= render :partial => 'comments/comment', :collection => @post.comments %>
+<% else -%>
+<p>No resposnes yet.</p>
+<% end -%>
 
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<div id="post_new_comment">
+  <%= render 'comments/new' %>
+</div>

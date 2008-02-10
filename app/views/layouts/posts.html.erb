@@ -2,16 +2,37 @@
        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Posts: <%= controller.action_name %></title>
-  <%= stylesheet_link_tag 'scaffold' %>
-</head>
-<body>
+ <head>
+   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+   <title><%= yield :title %></title>
+   <link rel="stylesheet" href="http://yui.yahooapis.com/2.4.1/build/reset-fonts-grids/reset-fonts-grids.css" type="text/css">
+   <%= stylesheet_link_tag 'bbot' %>
+ </head>
+ <body>
+   <div id="doc" class="yui-t4">
 
-<p style="color: green"><%= flash[:notice] %></p>
+     <div id="hd">
+       <h1><%= link_to "watch this &amp;nbsp;",posts_path, :class => 'header'%></h1>
+       <span id="subhd">the official mrchucho blog</span>
+     </div>
 
-<%= yield  %>
+     <div id="bd">
+       <div id="yui-main">
+         <div class="yui-b">
+           <div class="yui-g">
+             <%= yield %>
+           </div>
+         </div>
+       </div>
+       <div class="yui-b">
+         <%= yield :navigation %>
+       </div>
+     </div>
 
-</body>
+     <div id="ft">
+       <!--p><strong>mrchucho.net</strong> and <strong>watch this &amp;nbsp;</strong> are &copy; 2008 Ralph M. Churchill</p-->
+     </div>
+   </div>
+ </body>
 </html>
+

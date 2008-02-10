@@ -1,26 +1,15 @@
-<h1>New comment</h1>
-
 <%= error_messages_for :comment %>
-
 <% form_for(:comment,:url => post_comments_path(@post)) do |f| %>
-  <p>
-    <b>Author</b><br />
-    <%= f.text_field :author %>
-  </p>
+  <%= render :partial => 'comments/comment_form', :locals => {:f => f} %>
+  <input type="button" id="preview_button" value="Preview Comment" />
 
-  <p>
-    <b>Author email</b><br />
-    <%= f.text_field :author_email %>
-  </p>
+  <div id="preview" style="display:none;">
+    <div id="comment_preview" class="comment">
+      <p id="comment_preview_author" class="comment_author">&nbsp;</p>
 
-  <p>
-    <b>Body</b><br />
-    <%= f.text_area :body_raw %>
-  </p>
-
-  <p>
-    <%= f.submit "Create" %>
-  </p>
+      <div id="comment_preview_body" class="comment_body">&nbsp;</div>
+    </div>
+    <%= f.submit "Post Comment" %>
+  </div>
 <% end %>
-
-<%= link_to 'Back', post_comments_path(@post) %>
+<%= javascript_include_tag :all %>

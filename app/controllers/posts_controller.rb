@@ -34,6 +34,7 @@ class PostsController < ApplicationController
   end
 
   def create
+    @post = Post.new(params[:post])
     respond_to do |format|
       @post.save!
       format.html { redirect_to(@post) }

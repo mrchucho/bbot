@@ -1,14 +1,8 @@
-  <p>
-    <b>Author</b><br />
-    <%= f.text_field :author %>
-  </p>
+<div class="comment">
+  <p class="comment_author"><%= author(comment) %></p>
+  <small class="comment_created_at"><%= posted_at(comment) %></small>
 
-  <p>
-    <b>Author email</b><br />
-    <%= f.text_field :author_email %>
-  </p>
-
-  <p>
-    <b>Body</b><br />
-    <%= f.text_area :body_raw %>
-  </p>
+  <div class="comment_body">
+    <%= comment.body %>
+  </div>
+</div>

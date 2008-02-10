@@ -34,6 +34,43 @@ a, h2 a:hover, h3 a:hover {
     color: #06c;
     text-decoration: none;
 }
+abbr,acronym {
+    border-bottom:1px dotted #000;
+    cursor:help;
+} 
+em {
+    font-style:italic;
+}
+blockquote,ul,ol,dl {
+    margin:1em;
+}
+ol,ul,dl {
+    margin-left:2em;
+}
+ol li {
+    list-style: decimal outside;    
+}
+ul li {
+    list-style: disc outside;
+}
+dl dd {
+    margin-left:1em;
+}
+th,td {
+    border:1px solid #000;
+    padding:.5em;
+}
+th {
+    font-weight:bold;
+    text-align:center;
+}
+caption {
+    margin-bottom:.5em;
+    text-align:center;
+}
+p,fieldset,table {
+    margin-bottom:1em;
+}
 /*
 a:active {
     color: #333333;
@@ -49,6 +86,41 @@ a:hover {
 small {
     font-family: Arial;
     color: #777;
+}
+/* ------------------------------------------------------------------------- */
+/* Forms                                                                     */
+/* ------------------------------------------------------------------------- */
+form ul{
+	margin:0;
+	padding:0;
+	list-style-type:none;
+	width:100%;
+}
+form li{
+	margin:0;
+	padding:4px 5px 2px 8px;
+	position:relative;
+	clear:both;
+	list-style-type:none;
+}
+* html form li div{
+	display:inline-block;
+}
+form li div, form li span{
+	margin:0 4px 0 0;
+	padding:0 0 8px 0;
+	color:#444;
+}
+form li span{
+	float:left;
+}
+label.desc{
+	padding:0 0 1px 0;
+	border:none;
+	color:#222;
+	display:block;
+	font-size:85%;
+	font-weight:bold;
 }
 /* ------------------------------------------------------------------------- */
 /* General                                                                   */
@@ -99,3 +171,30 @@ div#hd {
     background: #f0f0f0;
     color: #444;
 }
+#post_new_comment {
+    background: #f0f0f0;
+    padding: 10px;
+}
+/* ------------------------------------------------------------------------- */
+/* Comment                                                                   */
+/* ------------------------------------------------------------------------- */
+.comment {
+    margin: 0px 0px 20px 0px;
+}
+.comment div {
+    margin: 5px 0px;
+}
+.comment_author {
+    display: inline;
+    font-weight: bold;
+}
+a.comment_author_site {
+    text-decoration: underline;
+}
+#comment_preview {
+    margin: 10px 0px;
+    padding: 10px;
+    border: 2px solid #3b6ea5;
+    background-color: #ECF5FA;
+}
+
