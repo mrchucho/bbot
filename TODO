@@ -1,3 +1,7 @@
+* Capistrano:
+    can visudo to allow nopasswd during setup
+    other times, nopasswd ONLY for restarting mongrel
+
 * Moderate/Edit/Delete Comments
 
 * Include small textism reference on /edit. What about in comment/new ?

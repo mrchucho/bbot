@@ -5,8 +5,7 @@
  <head>
    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
    <title><%= yield :title %></title>
-   <link rel="stylesheet" href="http://yui.yahooapis.com/2.4.1/build/reset-fonts-grids/reset-fonts-grids.css" type="text/css" />
-   <%= stylesheet_link_tag 'bbot' %>
+   <%= stylesheet_link_tag 'reset-fonts-grids','bbot', :cache => 'styles' %>
  </head>
  <body>
    <div id="doc" class="yui-t4">
