@@ -150,23 +150,26 @@ div#hd {
 /* Post                                                                      */
 /* ------------------------------------------------------------------------- */
 .post {
-    margin: 0px 0px 5px 0px;
+    /*margin: 0px 0px 5px 0px;*/
+    margin-bottom: 0.5em;
 }
 .post div {
-    margin: 5px 0px 5px 0px;
+    /* margin: 5px 0px 5px 0px;*/
+    margin: 0.5em 0;
 }
 .post h2 {
-    margin: 0px;
+    margin: 0;
 }
 .post_body {
-    padding-top: 5px;
+    /* padding-top: 5px;*/
+    padding-top: 0.5em;
 }
 .post_comments_header {
     font-size: 77%;
 }
 .post_comments_link {
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 2em;
 }
 /*
 #post_comments {
