@@ -1,9 +1,9 @@
 class CommentsController < ApplicationController
   before_filter :login_required, :except => :create
   before_filter :find_post
-  before_filter :find_comment, :only => [:show,:edit,:update,:destroy]
+  before_filter :find_comment, :only => [:show,:edit,:update,:destroy,:moderate]
   session :off => false, :except => [:index,:show,:new,:create]
-  cache_sweeper :post_sweeper, :only => [:create,:update,:destroy]
+  cache_sweeper :post_sweeper, :only => [:create,:update,:destroy,:moderate]
 
   def index
     @comments = @post.comments.find(:all)
@@ -54,6 +54,14 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.destroy
+    respond_to do |format|
+      format.html { redirect_to(post_comments_url(@post)) }
+      # format.xml  { head :ok }
+    end
+  end
+
+  def moderate
+    @comment.moderate
     respond_to do |format|
       format.html { redirect_to(post_comments_url(@post)) }
       # format.xml  { head :ok }

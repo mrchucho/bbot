@@ -2,7 +2,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :session
   map.resources :users
   map.resources :posts do |posts|
-    posts.resources :comments
+    posts.resources :comments, :member => {:moderate => :put}
   end
   map.resources :drafts
   

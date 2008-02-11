@@ -19,7 +19,9 @@
     <td><%=  comment.body %></td>
     <td><%= link_to 'Show', post_comment_path(@post,comment) %>
     <%= link_to 'Edit', edit_post_comment_path(@post,comment) %>
-    <%= link_to 'Destroy', post_comment_path(@post,comment), :confirm => 'Are you sure?', :method => :delete %></td>
+    <%= link_to 'Moderate', moderate_post_comment_path(@post,comment),:method => :put %>
+    <%= link_to 'Destroy', post_comment_path(@post,comment), :confirm => 'Are you sure?', :method => :delete %>
+    </td>
   </tr>
 <% end %>
 </table>

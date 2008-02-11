@@ -10,10 +10,6 @@ class Post < ActiveRecord::Base
     end
   end
 
-  def comments_count
-    @comments_count ||= comments.count(:conditions => {:moderated => true})
-  end
-
 private
   def convert_body
     self.body = RedCloth.new(self.body_raw).to_html

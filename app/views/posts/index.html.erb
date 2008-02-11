@@ -4,5 +4,5 @@
 
 <% for post in @posts -%>
 <%= render :partial => 'post', :object => post %>
-<%= link_to "comments (#{post.comments_count})", post, :class => 'post_comments_link' %>
+<%= link_to "comments (#{post.moderated_comments_count})", post, :class => 'post_comments_link' %>
 <% end -%>
