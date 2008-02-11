@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   cache_sweeper :post_sweeper, :only => [:create,:update,:destroy]
   
   def index
-    @posts = Post.find(:all)
+    @posts = Post.published(:all,:limit => 10,:order => 'created_at desc')
     respond_to do |format|
       format.html
       format.xml  { render :xml => @posts }

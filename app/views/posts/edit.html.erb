@@ -3,20 +3,7 @@
 <%= error_messages_for :post %>
 
 <% form_for(@post) do |f| %>
-  <p>
-    <b>Name</b><br />
-    <%= f.text_field :title %>
-  </p>
-
-  <p>
-    <b>Category</b><br />
-    <%= f.text_field :category %>
-  </p>
-  <p>
-    <b>Body</b><br />
-    <%= f.text_area :body_raw %>
-  </p>
-
+  <%= render :partial => 'post_form',:object => @post,:locals => {:f => f} %>
   <p>
     <%= f.submit "Update" %>
   </p>

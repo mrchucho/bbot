@@ -9,8 +9,7 @@ class Comment < ActiveRecord::Base
   end
 
 private
-include ActionView::Helpers::TextHelper
   def convert_body
-    self.body = textilize(self.body_raw)
+    self.body = RedCloth.new(self.body_raw).to_html
   end
 end
