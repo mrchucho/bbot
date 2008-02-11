@@ -4,11 +4,11 @@
 
 <%= render :partial => 'post' %>
 
-<h3 id="post_comments">Responses to &quot;<%=h @post.title%>&quot;</h3>
-<% unless @post.comments.empty? -%>
-<%= render :partial => 'comments/comment', :collection => @post.comments %>
+<h3 id="post_comments_header">Responses to &quot;<%=h @post.title%>&quot;</h3>
+<% unless @post.comments.moderated.empty? -%>
+  <%= render :partial => 'comments/comment',:collection => @post.comments.moderated %>
 <% else -%>
-<p>No resposnes yet.</p>
+  <p>No responses yet.</p>
 <% end -%>
 
 <div id="post_new_comment">

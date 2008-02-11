@@ -82,7 +82,7 @@ a:hover {
     color: #147;
     text-decoration: underline;
 }
-    */
+*/
 small {
     font-family: Arial;
     color: #777;
@@ -150,7 +150,7 @@ div#hd {
 /* Post                                                                      */
 /* ------------------------------------------------------------------------- */
 .post {
-    margin: 0px 0px 20px 0px;
+    margin: 0px 0px 5px 0px;
 }
 .post div {
     margin: 5px 0px 5px 0px;
@@ -161,9 +161,23 @@ div#hd {
 .post_body {
     padding-top: 5px;
 }
-.post_comments {
+.post_comments_header {
     font-size: 77%;
 }
+.post_comments_link {
+    display: block;
+    margin-bottom: 20px;
+}
+/*
+#post_comments {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+#post_comments li  {
+    list-style: none;
+}
+*/
 .post pre {
     margin: 5px 0px 5px 0px;
     padding: 5px;
@@ -179,17 +193,35 @@ div#hd {
 /* Comment                                                                   */
 /* ------------------------------------------------------------------------- */
 .comment {
+    /*border: 2px solid #f0f0f0;*/
+    border: 1px solid #ddd;
     margin: 0px 0px 20px 0px;
+    padding: 5px;
 }
 .comment div {
     margin: 5px 0px;
 }
+/*
+.alt {
+    background-color: #f8f8f8;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+*/
 .comment_author {
     display: inline;
     font-weight: bold;
+    margin-right: 5px;
 }
-a.comment_author_site {
+.comment_author_site {
     text-decoration: underline;
+}
+.comment pre {
+    margin: 5px 0px 5px 0px;
+    padding: 5px;
+    overflow: auto;
+    background: #f0f0f0;
+    color: #444;
 }
 #comment_preview {
     margin: 10px 0px;
@@ -197,4 +229,3 @@ a.comment_author_site {
     border: 2px solid #3b6ea5;
     background-color: #ECF5FA;
 }
-

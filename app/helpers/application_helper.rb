@@ -11,4 +11,8 @@ module ApplicationHelper
   def posted_at(post)
     post.created_at.strftime('%Y %b %d at %H:%M')
   end
+
+  def alt(index)
+    index.even? ? "" : "alt"
+  end
 end

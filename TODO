@@ -1,9 +1,12 @@
+* Moderate/Edit/Delete Comments
+
 * Include small textism reference on /edit. What about in comment/new ?
 * What other <link rel="" /> stuff do I need in my <head>?
 * Syntax highlighting
 * acts_as_taggable
 * "cache" and minify javascript / css
 * Counter cache for comments on Post, would that help post_sweeper?
+* "scrub" Comment#author_site
 * DONE Textile <-> HTML
 * DONE RSS feeds
 * Cocoa Editor using ActiveResource

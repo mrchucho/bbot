@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
   attr_protected :body
 
   def comments_count
-    @comments_count ||= comments.count
+    @comments_count ||= comments.count(:conditions => {:moderated => true})
   end
 
 private

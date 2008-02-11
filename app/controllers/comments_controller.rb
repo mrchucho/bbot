@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_filter :login_required, :except => [:index,:show,:new,:create]
+  before_filter :login_required, :except => :create
   before_filter :find_post
   before_filter :find_comment, :only => [:show,:edit,:update,:destroy]
   session :off => false, :except => [:index,:show,:new,:create]
@@ -9,14 +9,14 @@ class CommentsController < ApplicationController
     @comments = @post.comments.find(:all)
     respond_to do |format|
       format.html
-      format.xml  { render :xml => @comments }
+      # format.xml  { render :xml => @comments }
     end
   end
 
   def show
     respond_to do |format|
       format.html 
-      format.xml  { render :xml => @comment }
+      # format.xml  { render :xml => @comment }
     end
   end
 
@@ -24,7 +24,7 @@ class CommentsController < ApplicationController
     @comment = @post.comments.build
     respond_to do |format|
       format.html
-      format.xml  { render :xml => @comment }
+      # format.xml  { render :xml => @comment }
     end
   end
 
@@ -34,9 +34,13 @@ class CommentsController < ApplicationController
   def create
     @comment = @post.comments.build(params[:comment])
     respond_to do |format|
-      @comment.save!
-      format.html { redirect_to post_comment_url(@post,@comment) }
-      format.xml  { render :xml => @comment, :status => :created, :location => @comment }
+      begin
+        @comment.save!
+        format.html { redirect_to @post }
+        # format.xml  { render :xml => @comment, :status => :created, :location => @comment }
+      rescue ActiveRecord::RecordInvalid 
+        format.html { render :action => 'warning' }
+      end
     end
   end
 
@@ -44,7 +48,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
       @comment.update_attributes!(params[:comment])
       format.html { redirect_to post_comment_url(@post,@comment) }
-      format.xml  { head :ok }
+      # format.xml  { head :ok }
     end
   end
 
@@ -52,7 +56,7 @@ class CommentsController < ApplicationController
     @comment.destroy
     respond_to do |format|
       format.html { redirect_to(post_comments_url(@post)) }
-      format.xml  { head :ok }
+      # format.xml  { head :ok }
     end
   end
 
