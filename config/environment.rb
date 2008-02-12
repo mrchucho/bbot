@@ -27,6 +27,9 @@ Rails::Initializer.run do |config|
 
   # Add additional load paths for your own custom dirs
   config.load_paths << "#{RAILS_ROOT}/app/sweepers"
+  config.load_paths += Dir["#{RAILS_ROOT}/vendor/gems/**"].map do |dir| 
+      File.directory?(lib = "#{dir}/lib") ? lib : dir
+  end
 
   # Force all environments to use the same logger level
   # (by default production uses :info, the others :debug)
