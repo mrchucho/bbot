@@ -5,7 +5,7 @@ set :application_short_name, "bbot" # used for config file names, etc.
 set :site_name, "mrchucho.net" # FQDN - www
 set :deploy_to, "/var/www/vhosts/#{application}"
 
-set :repository, "http://67.207.138.175/svn/bbot/trunk"
+set :repository, "http://svn.mrchucho.net/bbot/trunk"
 set :deploy_via, :export
 set :scm_username, "mrchucho"
 set :scm_prefer_prompt, true
