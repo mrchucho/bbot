@@ -35,6 +35,7 @@ set :mongrel_pid_dir, "/var/run/mongrel_cluster"
 namespace :deploy do
   desc "Ensure Rails log has proper persmissions."
   task :verify_log_permissions do
+    run "chgrp -R #{group} #{current_path}/"
     sudo "chmod 0666 #{current_path}/log/#{rails_env}.log"
   end
 

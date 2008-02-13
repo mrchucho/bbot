@@ -2,7 +2,10 @@
     can visudo to allow nopasswd during setup
     other times, nopasswd ONLY for restarting mongrel
 
-* Moderate/Edit/Delete Comments
+* A "commments needing moderation" dashboard ; Moderate/Edit/Delete Comments
+* Indexes
+
+* set expires on JS & CSS
 
 * Include small textism reference on /edit. What about in comment/new ?
 * What other <link rel="" /> stuff do I need in my <head>?
