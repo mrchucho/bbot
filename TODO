@@ -1,18 +1,20 @@
+* upload old content (wordpress/wp-content)
 * Capistrano:
-    can visudo to allow nopasswd during setup
-    other times, nopasswd ONLY for restarting mongrel
-
+    ** can visudo to allow nopasswd during setup
+    ** other times, nopasswd ONLY for restarting mongrel
+    ** upload datbase.yml
 * A "commments needing moderation" dashboard ; Moderate/Edit/Delete Comments
-* Indexes
-
-* set expires on JS & CSS
-
+* Database Indexes
+* Set expiry on javascript & CSS
 * Include small textism reference on /edit. What about in comment/new ?
+* Post preview like comments preview.
 * What other <link rel="" /> stuff do I need in my <head>?
 * Syntax highlighting
 * acts_as_taggable
-* "cache" and minify javascript / css
-* Counter cache for comments on Post, would that help post_sweeper?
+* minify css and javascript
+* "cache" javascript
+* DONE "cache" css
+* DONE Counter cache for comments on Post, would that help post_sweeper?
 * "scrub" Comment#author_site
 * DONE Textile <-> HTML
 * DONE RSS feeds

@@ -1,6 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
   map.resource :session
   map.resources :users
+  map.paginated_posts '/posts/pages/:page', :controller => 'posts', :action => 'index'
+  map.formatted_paginated_posts '/posts/pages/:page.:format', :controller => 'posts', :action => 'index'
   map.resources :posts do |posts|
     posts.resources :comments, :member => {:moderate => :put}
   end
