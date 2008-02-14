@@ -23,4 +23,13 @@ namespace :import do
       comment.moderate
     end
   end
+
+  desc "Update content links."
+  task(:content => :environment) do
+    Post.find(:all).each do |post|
+      post.body_raw.gsub!("http://www.mrchucho.net/wordpress/wp-content","/content")
+      post.body_raw.gsub!("http://www.mrchucho.net/downloads","/downloads")
+      post.save
+    end
+  end
 end

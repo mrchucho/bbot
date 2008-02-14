@@ -1,6 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   map.resource :session
   map.resources :users
+  # can paginated stuff go INSIDE posts and/or :member => {:pages => :get}
   map.paginated_posts '/posts/pages/:page', :controller => 'posts', :action => 'index'
   map.formatted_paginated_posts '/posts/pages/:page.:format', :controller => 'posts', :action => 'index'
   map.resources :posts do |posts|

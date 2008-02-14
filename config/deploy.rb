@@ -96,8 +96,7 @@ EOF
 ServerName #{site_name}
 ServerAlias www.#{site_name}
 ServerAdmin admin@#{site_name}
-# UseCanonicalName Off
-DocumentRoot #{current_path}/public
+DocumentRoot "#{current_path}/public"
 
 <Directory "#{current_path}/public">
         Options FollowSymLinks
@@ -106,11 +105,11 @@ DocumentRoot #{current_path}/public
         Allow from all 
 </Directory>
 
-<Directory "#{current_path}/public">
-        RewriteEngine On
-        RewriteCond %{REQUEST_FILENAME} !-f
-        RewriteRule ^(.*)$ balancer://mongrel_cluster/$1 [P,QSA,L]
-</Directory>
+RewriteEngine On
+RewriteRule ^/$ /index.html [QSA]
+RewriteRule ^([^.]+)$ $1.html [QSA]
+RewriteCond %{DOCUMENT_ROOT}/%{REQUEST_FILENAME} !-f
+RewriteRule ^/(.*)$ balancer://mongrel_cluster%{REQUEST_URI} [P,QSA,L]
 EOF
 
       httpd_conf = <<-EOF

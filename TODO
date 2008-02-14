@@ -1,3 +1,5 @@
+* Investigate colors in Apple's "Web Safe" color pallete. 
+* SSL
 * upload old content (wordpress/wp-content)
 * Capistrano:
     ** can visudo to allow nopasswd during setup
@@ -6,6 +8,11 @@
 * A "commments needing moderation" dashboard ; Moderate/Edit/Delete Comments
 * Database Indexes
 * Set expiry on javascript & CSS
+
+    <FilesMatch "\.(ico|gif|jpe?g|png|js|css)$">
+        ExpiresDefault "access plus 1 year"
+    </FilesMatch>
+
 * Include small textism reference on /edit. What about in comment/new ?
 * Post preview like comments preview.
 * What other <link rel="" /> stuff do I need in my <head>?
@@ -18,4 +25,5 @@
 * "scrub" Comment#author_site
 * DONE Textile <-> HTML
 * DONE RSS feeds
+* 404 & 500 pages.
 * Cocoa Editor using ActiveResource
