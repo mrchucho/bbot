@@ -27,7 +27,17 @@
          </div>
        </div>
        <div class="yui-b">
-         <%= yield :navigation %>
+         <%# yield :navigation %>
+         <ul id="menu">
+           <li><p>This is my blog.</p></li>
+           <li>
+           <ul id="pages">
+             <li><%= link_to 'about', '/pages/about' %></li>
+             <li><%= link_to 'contact', '/pages/contact' %></li>
+             <li><%= link_to 'projects', '/pages/projects' %></li>
+           </ul>
+           </li>
+         </ul>
        </div>
      </div>
 

@@ -1,20 +1,17 @@
-atom_feed(:url => formatted_post_url(:atom)) do |feed|
-feed.title("Posts")
-=begin
-feed.updated(@post.first ? @post.first.created_at : Time.now.utc)
-=end
+atom_feed do |feed|
+    feed.title("watch this &amp;nbsp;")
+    feed.description("The Official MrChucho Blog")
+    feed.updated(@posts.first ? @posts.first.created_at : Time.now.utc)
 
-for post in @posts
-  feed.entry(post) do |entry|
-    entry.title(post.title)
-    entry.content(post.body, :type => 'html')
+    for post in @posts
+      feed.entry(post) do |entry|
+        entry.title(post.title)
+        entry.content(post.body, :type => 'html')
 
-=begin
-    entry.author do |author|
-      author.name(post.creator.name)
-      author.email(post.creator.email_address)
+        entry.author do |author|
+          author.name("mrchucho")
+          # author.email("mrchucho@mrchucho.net")
+        end
+      end
     end
-=end
-  end
-end
 end

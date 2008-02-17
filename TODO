@@ -1,11 +1,13 @@
-* CONTACT
+* posts by name & date
+* Projects Page
+* DONE contact
 * Investigate colors in Apple's "Web Safe" color pallete. 
 * SSL
-* upload old content (wordpress/wp-content)
+* DONE upload old content (wordpress/wp-content)
 * Capistrano:
     ** can visudo to allow nopasswd during setup
     ** other times, nopasswd ONLY for restarting mongrel
-    ** upload datbase.yml
+    ** DONE upload datbase.yml
 * A "commments needing moderation" dashboard ; Moderate/Edit/Delete Comments
 * Database Indexes
 * Set expiry on javascript & CSS
@@ -16,7 +18,7 @@
 
 * Include small textism reference on /edit. What about in comment/new ?
 * Post preview like comments preview.
-* What other <link rel="" /> stuff do I need in my <head>?
+* DONE What other <link rel="" /> stuff do I need in my <head>?
 * Syntax highlighting
 * acts_as_taggable
 * minify css and javascript

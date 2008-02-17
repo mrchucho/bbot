@@ -266,3 +266,13 @@ border: 1px solid #eee;
 color: #ddd;
 }
   */
+#menu li{
+    list-style: none;
+}
+#menu li ul {
+    margin: 1em 0 0 0;
+    text-align: left;
+}
+#menu li ul li:before {
+    content: "\00BB \0020";
+}
