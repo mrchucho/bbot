@@ -1,5 +1,5 @@
 <div class="post">
-  <h2><%= link_to h(post.title), post, :class => "post_title" %></h2>
+  <h2><%= link_to h(post.title), permalink_path(post.permalink), :class => "post_title" %></h2>
   <small class="post_created_at">Posted <%= posted(post) %></small>
 
   <div class="post_body">

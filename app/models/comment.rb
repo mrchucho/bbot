@@ -22,15 +22,18 @@ private
   def convert_body
     self.body = RedCloth.new(self.body_raw).to_html
   end
+
   def update_moderated_comment_count(inc = 1)
     if (new_count = self.post.moderated_comments_count + inc) >= 0
       self.post.update_attribute("moderated_comments_count",new_count)
     end
   end
   def increment_moderated_comments_counter
+    # Post.increment_count(:moderated_comments_count,self.post_id) if moderated
     update_moderated_comment_count if moderated
   end
   def decrement_moderated_comments_counter
+    # Post.decrement_count(:moderated_comments_count,self.post_id) if moderated
     update_moderated_comment_count(-1) if moderated?
   end
 end

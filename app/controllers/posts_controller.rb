@@ -37,7 +37,7 @@ class PostsController < ApplicationController
     @post = Post.new(params[:post])
     respond_to do |format|
       @post.save!
-      format.html { redirect_to(@post) }
+      format.html { redirect_to permalink_path(@post.permalink) }
       format.xml  { render :xml => @post, :status => :created, :location => @post }
     end
   end
@@ -45,7 +45,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       @post.update_attributes!(params[:post])
-      format.html { redirect_to(@post) }
+      format.html { redirect_to permalink_path(@post.permalink) }
       format.xml  { head :ok }
     end
   end
@@ -60,6 +60,10 @@ class PostsController < ApplicationController
 
 private
   def find_post
-    @post = Post.find(params[:id])
+    if params.key? :id
+      @post = Post.find(params[:id])
+    else
+      @post = Post.find_by_permalink(params)
+    end
   end
 end

@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  # cache all these pages!
+  
   def error
     render :action => '500', :status => 500
   end

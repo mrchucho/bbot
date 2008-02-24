@@ -4,7 +4,7 @@ atom_feed do |feed|
     feed.updated(@posts.first ? @posts.first.created_at : Time.now.utc)
 
     for post in @posts
-      feed.entry(post) do |entry|
+      feed.entry(post,:url => permalink_url(post.permalink)) do |entry|
         entry.title(post.title)
         entry.content(post.body, :type => 'html')
 

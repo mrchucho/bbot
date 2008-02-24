@@ -36,7 +36,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
       begin
         @comment.save!
-        format.html { redirect_to @post }
+        format.html { redirect_to permalink_path(@post.permalink) }
         # format.xml  { render :xml => @comment, :status => :created, :location => @comment }
       rescue ActiveRecord::RecordInvalid 
         format.html { render :action => 'warning' }
