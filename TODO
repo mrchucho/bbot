@@ -1,6 +1,5 @@
-Fix caching for permalinks
-Fix pagination "resource"
-
+* DONE Fix caching for permalinks
+* DONE Fix pagination "resource"
 * do I need a /feed resource?
 * rewrite /index.php/archives/:year/:month/:day/:name => /posts/...
           /wordpress/wp-content/ => /content

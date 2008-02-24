@@ -18,10 +18,10 @@ class Post < ActiveRecord::Base
     begin
       date = Date.civil(params[:year].to_i,params[:month].to_i,params[:day].to_i)
       post = find(:all,:conditions => ["date(created_at) = ? and slug = ?",date,params[:slug]])
-      raise ActiveRecord::RecordNotFound.new "No such post." if post.nil? or post.size != 1
+      raise ActiveRecord::RecordNotFound.new("No such post.") if post.nil? or post.size != 1
       post.pop
     rescue => e
-      raise ActiveRecord::RecordNotFound.new "No such post."
+      raise ActiveRecord::RecordNotFound.new("No such post.")
     end
   end
 
