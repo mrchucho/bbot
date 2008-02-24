@@ -42,10 +42,10 @@ namespace :deploy do
 
   desc "Update my symlinks."
   task :update_my_symlinks do
-    run "ln -nfs #{shared_path}/content #{current_path}/public/content"
-    run "ln -nfs #{shared_path}/content #{current_path}/public/wp-content"
-    run "ln -nfs #{shared_path}/downloads #{current_path}/public/downloads"
-    run "ln -nfs #{shared_path}/system/database.yml #{current_path}/config/database.yml"
+    run "ln -nfs #{shared_path}/content #{release_path}/public/content"
+    run "ln -nfs #{shared_path}/content #{release_path}/public/wp-content"
+    run "ln -nfs #{shared_path}/downloads #{release_path}/public/downloads"
+    run "ln -nfs #{shared_path}/system/database.yml #{release_path}/config/database.yml"
   end
 
   namespace :setup_tasks do
@@ -165,6 +165,6 @@ end
 # Callbacks
 before "deploy:setup", "deploy:setup_tasks:required_pre_setup"
 after  "deploy:setup", "deploy:setup_tasks:required_post_setup"
-after  "deploy:update","deploy:update_my_symlinks"
+after  "deploy:update_code","deploy:update_my_symlinks"
 before "deploy:start", "deploy:verify_log_permissions"
 before "deploy:restart", "deploy:verify_log_permissions"
