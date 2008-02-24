@@ -120,6 +120,13 @@ RewriteRule ^/$ /index.html [QSA]
 RewriteCond %{REQUEST_METHOD} ^GET$
 RewriteRule ^([^.]+)$ $1.html [QSA]
 
+RewriteCond %{DOCUMENT_ROOT}/%{REQUEST_FILENAME}/update.rdf -f
+RewriteRule ^(.*)$ $1/update.rdf [QSA,L]
+
+RewriteRule ^/index.php/feed(.*)$ /posts.atom [R=301,QSA]
+RewriteRule ^/wp-rss2.php$ /posts.rss [R=301,QSA]
+RewriteRule ^(.*)avp-metal-sculpture/$ /pages/avp [R=301,QSA]
+
 RewriteCond %{DOCUMENT_ROOT}/%{REQUEST_FILENAME} !-f
 RewriteRule ^/(.*)$ balancer://mongrel_cluster%{REQUEST_URI} [P,QSA,L]
 EOF
