@@ -20,12 +20,11 @@ class Post < ActiveRecord::Base
       begin
         date = Date.civil(params[:year].to_i,params[:month].to_i,params[:day].to_i)
         post.reject!{|p| p.created_at.to_date != date}
-        raise ActiveRecord::RecordNotFound.new("No such post.") unless post.size == 1
       rescue => e
-        logger.error("Error finding by permalink: #{e}")
         raise ActiveRecord::RecordNotFound.new("No such post.")
       end
     end
+    raise ActiveRecord::RecordNotFound.new("No such post.") unless post.size == 1
     post.pop
   end
 
