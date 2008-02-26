@@ -1,13 +1,37 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-one:
-  name: MyString
+unique_slug:
+  title: Unique Title
+  slug: unique-title
   category: MyString
-  contents: MyText
-  contents_raw: MyText
+  body: MyText
+  body_raw: MyText
 
-two:
-  name: MyString
+non_unique_slug_unique_date1:
+  title: Non Unique Title One
+  slug: non-unique-title-one
   category: MyString
-  contents: MyText
-  contents_raw: MyText
+  body: MyText
+  body_raw: MyText
+  created_at: <%=Time.now.to_s(:db) %>
+
+non_unique_slug_unique_date2:
+  title: Non Unique Title One
+  slug: non-unique-title-one
+  category: MyString
+  body: MyText
+  body_raw: MyText
+  created_at: <%=(Time.now - 30.days).to_s(:db)%>
+
+non_unique_slug_non_unique_date1:
+  title: Non Unique Title Two
+  slug: non-unique-title-two
+  category: MyString
+  body: MyText
+  body_raw: MyText
+
+non_unique_slug_non_unique_date2:
+  title: Non Unique Title Two
+  slug: non-unique-title-two
+  category: MyString
+  body: MyText
+  body_raw: MyText
+
