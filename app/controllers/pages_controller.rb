@@ -8,4 +8,8 @@ class PagesController < ApplicationController
   def not_found
     render :action => '404', :status => 404
   end
+
+  def about; end
+  def contact; end
+  def projects; end
 end

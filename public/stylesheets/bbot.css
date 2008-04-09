@@ -276,3 +276,21 @@ color: #ddd;
 #menu li ul li:before {
     content: "\00BB \0020";
 }
+
+.project {
+    margin-bottom: 0.5em;
+}
+.project_version,.project_updated_at {
+    display: block;
+}
+
+.project_links ul {
+    margin: 1em 0 0 1em;
+    text-align: left;
+}
+.project_links ul li{
+    list-style: none;
+}
+.project_links ul li:before {
+    content: "\00BB \0020";
+}
