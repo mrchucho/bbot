@@ -1,2 +1,12 @@
-%p Coming soon.
-
+.project
+  %h3= @project.title
+/ %p.project_date= @project.date
+/ %p.project_version= project.version
+/ %p.project_description= project.description
+/ %ul.project_downloads
+/ - project.downloads.each do |download|
+/ %li
+/ %a{:href => download.url}
+/ download.link
+/ download.description
+/ - end
