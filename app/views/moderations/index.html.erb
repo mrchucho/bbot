@@ -1,0 +1,25 @@
+<% title("moderate comments") %>
+<% if notice = flash[:notice] -%>
+  <div id="flash"> <%= notice %> </div>
+<% end -%>
+<table id="unmoderated_comments">
+  <tr>
+    <th>Post</th><th>Author</th><th>Author Email</th><th>Comment</th><th>Created</th><th>&nbsp;</th>
+  </tr>
+  <% for comment in @comments %>
+  <tr id="<%=dom_id(comment)%>" class="unmoderated_comment">
+    <td class="unmoderated_comment_post_title"><%=link_to(comment.post.title,permalink_path(comment.post.permalink)) unless comment.post.nil?%></td>
+    <td class="unmoderated_comment_author"><%=h comment.author %></td>
+    <td class="unmoderated_comment_author_email"><%=h comment.author_email %></td>
+    <td class="unmoderated_comment_body_raw"><%=summarize_comment(comment.body_raw)%></td>
+    <td class="unmoderated_comment_created_at"><%=h comment.created_at.to_s(:short) %></td>
+    <td class="unmoderated_comment_id">
+      <%= link_to('view',moderation_path(comment))%>
+      <%# link_to_remote('moderate',:url => moderation_path(comment),:method => :put, :success => "")%>
+      <%= link_to('moderate',moderation_path(comment),:confirm => 'Really moderate?',:method => :put)%>
+      <%= link_to('delete',moderation_path(comment),:confirm => 'Really delete?',:method => :delete)%>
+    </td>
+  </tr>
+  <% end -%>
+</table>
+<%= javascript_include_tag 'prototype','textile','application', :cache => 'scripts' %>

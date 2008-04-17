@@ -11,6 +11,12 @@ class Comment < ActiveRecord::Base
     find(:all,:conditions => {:moderated => true })
   end
 
+  def Comment.find_unmoderated(*args)
+    with_scope(:find => {:conditions => "moderated = 'f'"}) do
+      find(*args)
+    end
+  end
+
   def moderate
     unless moderated?
       self.update_attribute("moderated",true)

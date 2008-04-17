@@ -1,7 +1,8 @@
 module ApplicationHelper
   def title(*args)
-    # &brvbar &raquo &sect
-    (args.unshift 'watch this &amp;nbsp;').join(' &sect; ')
+    content_for(:title) do
+      (args.unshift 'watch this &amp;nbsp;').join(' &sect; ')
+    end
   end
 
   def posted(post)

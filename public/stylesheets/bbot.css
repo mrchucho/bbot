@@ -294,3 +294,8 @@ color: #ddd;
 .project_links ul li:before {
     content: "\00BB \0020";
 }
+#flash {
+    border: 1px solid #ddd;
+    margin: 0px 0px 20px 0px;
+    padding: 5px;
+}

@@ -4,7 +4,7 @@
 * rewrite /index.php/archives/:year/:month/:day/:name => /posts/...
           /wordpress/wp-content/ => /content
 * DONE posts by name & date
-* Projects Page
+* DONE Projects Page
 * DONE contact
 * Investigate colors in Apple's "Web Safe" color pallete. 
 * SSL

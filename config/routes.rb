@@ -2,6 +2,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :session
   map.resources :users
   map.resources :drafts
+  map.resources :moderations
   map.pages 'pages', :controller => 'pages'
 
   map.with_options :controller => 'posts',:action => 'index' do |page|

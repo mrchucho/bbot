@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   caches_page :about, :contact, :projects
+  session :off
   
   def error
     render :action => '500', :status => 500

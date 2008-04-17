@@ -1,6 +1,4 @@
-<% content_for :title do -%>
-<%= title %>
-<% end -%>
+<% title %>
 
 <% for post in @posts -%>
 <%= render :partial => 'post', :object => post %>
