@@ -1,6 +1,6 @@
 atom_feed(:schema_date => "2008") do |feed|
     # id ?
-    feed.title("watch this &amp;nbsp;")
+    feed.title("watch this &amp;nbsp;", :type => 'html')
     # feed.description("The Official MrChucho Blog")
     feed.updated(@posts.first ? @posts.first.created_at : Time.now.utc)
 
