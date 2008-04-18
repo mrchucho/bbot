@@ -1,4 +1,4 @@
-atom_feed do |feed|
+atom_feed(:schema_date => "2008") do |feed|
     # id ?
     feed.title("watch this &amp;nbsp;")
     # feed.description("The Official MrChucho Blog")

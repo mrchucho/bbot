@@ -1,6 +1,7 @@
 class ModerationsController < ApplicationController
   before_filter :login_required
   before_filter :find_comment, :only => %w(show update destroy)
+  cache_sweeper :post_sweeper, :only => %w(update destroy)
 
   def index
     @comments = Comment.find_unmoderated(:all,:include => :post)
