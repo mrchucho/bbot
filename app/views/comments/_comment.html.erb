@@ -3,6 +3,6 @@
   <small class="comment_created_at"><%= posted_at(comment) %></small>
 
   <div class="comment_body">
-    <%= comment.body %>
+    <%= sanitize(comment.body) %>
   </div>
 </div>

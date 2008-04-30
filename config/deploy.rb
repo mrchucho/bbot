@@ -130,6 +130,11 @@ RewriteRule ^(.*)avp-metal-sculpture/$ /pages/avp [R=301,QSA]
 
 RewriteCond %{DOCUMENT_ROOT}/%{REQUEST_FILENAME} !-f
 RewriteRule ^/(.*)$ balancer://mongrel_cluster%{REQUEST_URI} [P,QSA,L]
+
+AddOutputFilterByType DEFLATE text/html text/plain text/xml application/xml application/xhtml+xml text/javascript text/css application/x-javascript
+BrowserMatch ^Mozilla/4 gzip-only-text/html
+BrowserMatch ^Mozilla/4\\.0[678] no-gzip
+BrowserMatch \\\\bMSIE !no-gzip !gzip-only-text/html
 EOF
 
       httpd_conf = <<-EOF
