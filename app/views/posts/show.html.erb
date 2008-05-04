@@ -10,5 +10,9 @@
 <% end -%>
 
 <div id="post_new_comment">
-  <%= render 'comments/new' %>
+  <% unless @post.closed? -%>
+    <%= render 'comments/new' %>
+  <% else -%>
+    <span><em>Comments are now closed.</em></span>
+  <% end -%>
 </div>
