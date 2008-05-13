@@ -1,3 +1,4 @@
+* Allow only quality outbound links (eg. rel="nofollow" on all user-generated links)
 * DONE Fix caching for permalinks
 * DONE Fix pagination "resource"
 * do I need a /feed resource?

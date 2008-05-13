@@ -1,16 +1,64 @@
 class PagesController < ApplicationController
-  caches_page :about, :contact, :projects
-  session :off
-  
-  def error
-    render :action => '500', :status => 500
+  before_filter :login_required, :except => [:index,:show]
+  before_filter :find_page, :only => %w(show edit update destroy)
+  session_off :only => %w(index show)
+  # caching
+
+  def index
+    @pages = Page.find(:all)
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @pages }
+    end
   end
 
-  def not_found
-    render :action => '404', :status => 404
+  def show
+    respond_to do |format|
+      format.html 
+      format.xml  { render :xml => @page }
+    end
   end
 
-  def about; end
-  def contact; end
-  def projects; end
+  def new
+    @page = Page.new
+    respond_to do |format|
+      format.html 
+      format.xml  { render :xml => @page }
+    end
+  end
+
+  def edit
+  end
+
+  def create
+    @page = Page.new(params[:page])
+    respond_to do |format|
+      @page.save!
+      format.html { redirect_to(page_path(@page.title)) }
+      format.xml  { render :xml => @page, :status => :created, :location => @page }
+    end
+  end
+
+  def update
+    respond_to do |format|
+      @page.update_attributes!(params[:page])
+      format.html { redirect_to(page_path(@page.title)) }
+      format.xml  { head :ok }
+    end
+  end
+
+  def destroy
+    @page.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(pages_url) }
+      format.xml  { head :ok }
+    end
+  end
+
+private
+  def find_page
+    @page = Page.find_by_title(params[:id])
+  end
 end

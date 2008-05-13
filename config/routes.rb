@@ -3,7 +3,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users
   map.resources :drafts
   map.resources :moderations
-  map.pages 'pages', :controller => 'pages'
+  map.resources :pages
 
   map.with_options :controller => 'posts',:action => 'index' do |page|
     page.paginated_posts '/posts/pages/:page'
