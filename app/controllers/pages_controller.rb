@@ -1,8 +1,9 @@
 class PagesController < ApplicationController
   before_filter :login_required, :except => [:index,:show]
   before_filter :find_page, :only => %w(show edit update destroy)
-  session_off :only => %w(index show)
-  # caching
+  session :off, :only => %w(index show)
+  caches_page :index, :show
+  cache_sweeper :page_sweeper, :only => %w(create update destroy)
 
   def index
     @pages = Page.find(:all)
@@ -35,7 +36,7 @@ class PagesController < ApplicationController
     @page = Page.new(params[:page])
     respond_to do |format|
       @page.save!
-      format.html { redirect_to(page_path(@page.title)) }
+      format.html { redirect_to(page_path(@page.permalink)) }
       format.xml  { render :xml => @page, :status => :created, :location => @page }
     end
   end
@@ -43,7 +44,7 @@ class PagesController < ApplicationController
   def update
     respond_to do |format|
       @page.update_attributes!(params[:page])
-      format.html { redirect_to(page_path(@page.title)) }
+      format.html { redirect_to(page_path(@page.permalink)) }
       format.xml  { head :ok }
     end
   end

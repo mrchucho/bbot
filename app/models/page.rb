@@ -20,4 +20,8 @@ class Page < ActiveRecord::Base
   def has_attachment?
     !self.attachment.blank?
   end
+
+  def permalink
+    { :id => self.title.downcase }
+  end
 end

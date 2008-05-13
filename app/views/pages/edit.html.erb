@@ -3,7 +3,7 @@
 
 <%= error_messages_for :page %>
 
-<% form_for(@page) do |f| %>
+<% form_for(:page,@page,:url => page_path(@page.permalink),:html => {:method => :put}) do |f| %>
   <%= render :partial => 'page_form',:object => @page,:locals => {:f => f} %>
   <p>
     <%= f.submit "Update" %>
