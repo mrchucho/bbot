@@ -37,7 +37,7 @@ class PostsController < ApplicationController
     @post = Post.new(params[:post])
     respond_to do |format|
       @post.save!
-      format.html { redirect_to permalink_path(@post.permalink) }
+      format.html { redirect_to @post.published? ? permalink_path(@post.permalink) : drafts_path }
       format.xml  { render :xml => @post, :status => :created, :location => @post }
     end
   end
@@ -45,7 +45,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       @post.update_attributes!(params[:post])
-      format.html { redirect_to permalink_path(@post.permalink) }
+      format.html { redirect_to @post.published? ? permalink_path(@post.permalink) : drafts_path }
       format.xml  { head :ok }
     end
   end

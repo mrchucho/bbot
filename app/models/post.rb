@@ -10,6 +10,12 @@ class Post < ActiveRecord::Base
     end
   end
 
+  def Post.find_unpublished(*args)
+    with_scope(:find => {:conditions => {:published => false}}) do
+      find(*args)
+    end
+  end
+
   def Post.per_page
     10
   end

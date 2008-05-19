@@ -1,0 +1,21 @@
+<% title("drafts") %>
+<% if notice = flash[:notice] -%>
+  <div id="flash"> <%= notice %> </div>
+<% end -%>
+<table id="unpublished_posts">
+  <tr>
+    <th>Title</th><th>Created</th><th>Last Updated</th><th>&nbsp;</th>
+  </tr>
+  <% @posts.each do |post|%>
+  <tr id="<%=dom_id(post)%>" class="unpublished_post">
+    <td class="unpublished_post_title"><%=h post.title %></td>
+    <td class="unpublished_post_created_at"><%=h post.created_at.to_s(:short) %></td>
+    <td class="unpublished_post_updated_at"><%=h post.updated_at.to_s(:short) %></td>
+    <td class="unpublished_post_id">
+      <%= link_to('edit',edit_post_path(post))%>
+      <%= link_to('delete',post_path(post),:confirm => 'Really delete?',:method => :delete)%>
+    </td>
+  </tr>
+  <% end -%>
+</table>
+<%= javascript_include_tag 'prototype','textile','application', :cache => 'scripts' %>
