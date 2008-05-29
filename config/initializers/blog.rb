@@ -1,4 +1,4 @@
-BLOG_TITLE = "watch this &amp;nbsp;"
-BLOG_SUBTITLE = "the official mrchucho blog"
-BLOG_BLURB = "This is my blog."
-BLOG_AUTHOR = "mrchucho"
+BLOG_TITLE    = "My Blog"
+BLOG_SUBTITLE = "my personal blog"
+BLOG_AUTHOR   = "me" 
+BLOG_BLURB    = "" # show up in the side bar
