@@ -26,7 +26,7 @@ class Comment < ActiveRecord::Base
 
 private
   def convert_body
-    self.body = RedCloth.new(self.body_raw).to_html
+    self.body = RedCloth.new(self.body_raw,[:filter_html]).to_html
   end
 
   def update_moderated_comment_count(inc = 1)
