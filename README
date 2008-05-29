@@ -12,11 +12,21 @@ featureful; exactly what I (you) need and nothing more.
 * Simple, effective caching
 * RESTful
 
-== Customizing bbot
-* Create a user account:
+== Setup bbot
+* Make sure you have Rails 2.0.2 (or greater) installed as well as any other dependencies (e.g. sqlite3)
+* Setup a database configuration: use config/database.yml.sample as a starting point
+* rake db:migrate
+* script/server 
+
+== Using and Customizing bbot
+* bbot is designed in a RESTful and (hopefully) intuitive manner:
+    ** To create a post: http://<host>/posts/new
+    ** To moderate comments: http://<host>/moderations
+    ** To modify a draft: http://<host>/drafts
+    ** Setup your own static pages: http://<host>/pages/new 
+* Create a user account (necessary for posting, moderating and creating pages):
     $ cd bbot
     $ script/console
     >> User.create(:login => "blogger", :email => "blogger@example.org", :password => "password", :password_confirmation => "password")
-
-* config/initializers/blog.rb
-* Setup your own static pages: http://<host>/pages/new
+* Set site-specific parameters: modify config/initializers/blog.rb
+* Modify config.action_controller.session: session_key and secret 
