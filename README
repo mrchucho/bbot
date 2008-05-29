@@ -13,5 +13,10 @@ featureful; exactly what I (you) need and nothing more.
 * RESTful
 
 == Customizing bbot
+* Create a user account:
+    $ cd bbot
+    $ script/console
+    >> User.create(:login => "blogger", :email => "blogger@example.org", :password => "password", :password_confirmation => "password")
+
 * config/initializers/blog.rb
 * Setup your own static pages: http://<host>/pages/new
