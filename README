@@ -13,8 +13,13 @@ featureful; exactly what I (you) need and nothing more.
 * RESTful
 
 == Setup bbot
-* Make sure you have Rails 2.0.2 (or greater) installed as well as any other dependencies (e.g. sqlite3)
+* Make sure you have Rails 2.0.2 (or greater) and any other dependencies (e.g. sqlite3) installed
 * Setup a database configuration: use config/database.yml.sample as a starting point
+* Create a secret for the cookie-based session store: run "rake secret" and copy the generated value into config/environment.rb:
+    config.action_controller.session = {
+        :session_key => '_bbot_session',
+        :secret      => '<YOUR SECRET HERE>'
+    }
 * rake db:migrate
 * script/server 
 
