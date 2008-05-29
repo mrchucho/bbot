@@ -60,15 +60,6 @@ class CommentsController < ApplicationController
       # format.xml  { head :ok }
     end
   end
-
-  def moderate
-    @comment.moderate
-    respond_to do |format|
-      format.html { redirect_to(post_comments_url(@post)) }
-      # format.xml  { head :ok }
-    end
-  end
-
 private
   def find_post
     @post = Post.find(params[:post_id])

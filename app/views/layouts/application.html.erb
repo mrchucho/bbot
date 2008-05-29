@@ -14,8 +14,8 @@
    <div id="doc" class="yui-t4">
 
      <div id="hd">
-       <h1><%= link_to "watch this &amp;nbsp;",posts_path, :class => 'header'%></h1>
-       <span id="subhd">the official mrchucho blog</span>
+       <h1><%= link_to BLOG_TITLE ,posts_path, :class => 'header'%></h1>
+       <span id="subhd"><%= BLOG_SUBTITLE %></span>
      </div>
 
      <div id="bd">
@@ -29,12 +29,12 @@
        <div class="yui-b">
          <%# yield :navigation %>
          <ul id="menu">
-           <li><p>This is my blog.</p></li>
+           <li><p><%= BLOG_BLURB %></p></li>
            <li>
            <ul id="pages">
-             <li><%= link_to 'about', '/pages/about' %></li>
-             <li><%= link_to 'contact', '/pages/contact' %></li>
-             <li><%= link_to 'projects', '/pages/projects' %></li>
+             <%- Page.displayed_in_layout.each do |page| -%>
+             <li><%= link_to page.title, page_path(page.permalink) %></li>
+             <%- end -%>
            </ul>
            </li>
          </ul>
@@ -42,7 +42,6 @@
      </div>
 
      <div id="ft">
-       <!--p><strong>mrchucho.net</strong> and <strong>watch this &amp;nbsp;</strong> are &copy; 2008 Ralph M. Churchill</p-->
      </div>
    </div>
    <%= link_to 'atom', formatted_posts_url(:format => :atom) %>

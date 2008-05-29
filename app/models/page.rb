@@ -9,6 +9,10 @@ class Page < ActiveRecord::Base
     page
   end
 
+  def Page.displayed_in_layout
+    Page.find(:all, :conditions => {:title => %w(about contact projects)}) # ,:conditions => {:display_in_layout => true})
+  end
+
   def content
     unless has_attachment?
       {:inline => body}

@@ -1,7 +1,7 @@
 module ApplicationHelper
   def title(*args)
     content_for(:title) do
-      (args.unshift 'watch this &amp;nbsp;').join(' &sect; ')
+      (args.unshift BLOG_TITLE).join(' &sect; ')
     end
   end
 
