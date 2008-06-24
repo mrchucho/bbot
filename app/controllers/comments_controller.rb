@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
   before_filter :login_required, :except => :create
   before_filter :find_post
   before_filter :find_comment, :only => [:show,:edit,:update,:destroy,:moderate]
+  before_filter :protect_from_spam, :only => [:create,:update]
   before_filter :restrict_closed_posts, :only => [:create,:update]
   session :off => false, :except => [:index,:show,:new,:create]
   cache_sweeper :post_sweeper, :only => [:create,:update,:destroy,:moderate]
@@ -66,6 +67,9 @@ private
   end
   def find_comment
     @comment = @post.comments.find(params[:id])
+  end
+  def protect_from_spam
+    head(:forbidden) unless params[:_key].blank?
   end
   def restrict_closed_posts
     head(:forbidden) if @post.closed?

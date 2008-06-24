@@ -1,4 +1,8 @@
 <ul>
+  <li class="first-child">
+  <label class="desc" for="_key">Field Should Be Left Blank</label>
+  <div><input type="text" id="_key" name="_key" /></div>
+  </li>
   <li class="">
   <label class="desc" for="comment_author">Author</label>
   <div><%= f.text_field :author, :class => 'field text'%></div>
@@ -14,6 +18,5 @@
   <li class="">
   <label class="desc" for="comment_body_raw">Comment <small>(textile supported)</small></label>
   <div><%= f.text_area :body_raw,:rows => 10,:cols => 60,:class => 'field textarea'%></div>
-  
   </li>
 </ul>
