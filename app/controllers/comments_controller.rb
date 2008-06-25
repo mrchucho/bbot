@@ -69,7 +69,7 @@ private
     @comment = @post.comments.find(params[:id])
   end
   def protect_from_spam
-    head(:forbidden) unless params[:_key].blank?
+    head(:forbidden) unless params.key?(:_key) && params[:_key].blank?
   end
   def restrict_closed_posts
     head(:forbidden) if @post.closed?
