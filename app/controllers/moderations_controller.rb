@@ -15,7 +15,7 @@ class ModerationsController < ApplicationController
       @comment.moderate
       format.html do
         post = @comment.post
-        flash[:notice] = "Moderated comment by <em>#{@comment.author}</em> for post <a href=\"#{post_path(post)}\">#{post.title}</a>."
+        flash[:notice] = "Moderated comment by <em>#{@comment.author}</em> for post <a href=\"#{permalink_path(post.permalink)}\">#{post.title}</a>."
         redirect_to moderations_url 
       end
       format.js { head :ok }
@@ -27,7 +27,7 @@ class ModerationsController < ApplicationController
       @comment.destroy
       format.html do
         post = @comment.post
-        flash[:notice] = "Deleted comment by <em>#{@comment.author}</em> for post <a href=\"#{post_path(post)}\">#{post.title}</a>."
+        flash[:notice] = "Deleted comment by <em>#{@comment.author}</em> for post <a href=\"#{permalink_path(post.permalink)}\">#{post.title}</a>."
         redirect_to moderations_url 
       end
       format.js   { head :ok }

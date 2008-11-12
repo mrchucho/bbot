@@ -54,7 +54,7 @@ class CommentsController < ApplicationController
   end
 private
   def find_post
-    @post = Post.find(params[:post_id])
+    @post = Post.find_by_permalink(params)
   end
   def find_comment
     @comment = @post.comments.find(params[:id])

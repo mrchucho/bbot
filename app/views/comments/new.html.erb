@@ -1,5 +1,5 @@
 <%= error_messages_for :comment %>
-<% form_for(:comment,:url => post_comments_path(@post), :html => {:id => "post_new_comment"}) do |f| %>
+<% form_for(:comment,:url => post_comments_path(@post.permalink), :html => {:id => "post_new_comment"}) do |f| %>
   <%= render :partial => 'comments/comment_form', :locals => {:f => f} %>
   <input type="button" id="preview_button" value="Preview Comment" />
 

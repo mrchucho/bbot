@@ -12,7 +12,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.permalink ':year/:month/:day/:slug', :controller => 'posts', :action => 'show', :conditions => {:method => :get} 
   map.resources :posts do |post|
-    post.resource :comments
+    post.resource :comments, :path_prefix => ':year/:month/:day/:slug'
   end
 
   map.root :controller => 'posts'
