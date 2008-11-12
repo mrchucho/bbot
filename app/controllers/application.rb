@@ -3,10 +3,7 @@ class ApplicationController < ActionController::Base
   helper :all 
   rescue_from ActiveRecord::RecordInvalid, :with => :invalid_record
 
-  # See ActionController::RequestForgeryProtection for details
-  # Uncomment the :secret if you're not using the cookie session store
-  # FIXME Commented out for localhost
-  # protect_from_forgery # :secret => '453ac4c5492006093d78dbdfbbcdce09'
+  protect_from_forgery
 
 private
   def invalid_record(exception)

@@ -232,7 +232,7 @@ div#hd {
     border: 2px solid #3b6ea5;
     background-color: #ECF5FA;
 }
-div#post_new_comment form ul li.first-child {
+#post_new_comment ul li.first-child {
     display: none;
 }
 /* ------------------------------------------------------------------------- */
@@ -301,4 +301,7 @@ color: #ddd;
     border: 1px solid #ddd;
     margin: 0px 0px 20px 0px;
     padding: 5px;
+}
+.notice {
+    color: green;
 }

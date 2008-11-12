@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
   before_filter :login_required, :except => [:index,:show]
   before_filter :find_post, :only => [:show,:edit,:update,:destroy]
-  session :off, :only => [:index,:show]
-  caches_page :index, :show  
+  session :off, :only => :index
+  caches_page :index
   cache_sweeper :post_sweeper, :only => [:create,:update,:destroy]
   
   def index

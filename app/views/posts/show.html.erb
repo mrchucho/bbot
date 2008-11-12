@@ -1,5 +1,7 @@
 <% title(h(@post.title)) %>
 
+<% if flash[:notice] %><div id="flash" class="notice"><%= flash[:notice] %></div><% end %>
+
 <%= render :partial => 'post' %>
 
 <h3 id="post_comments_header">Responses to &quot;<%=h @post.title%>&quot;</h3>
@@ -9,10 +11,8 @@
   <p>No responses yet.</p>
 <% end -%>
 
-<div id="post_new_comment">
   <% unless @post.closed? -%>
     <%= render 'comments/new' %>
   <% else -%>
     <span><em>Comments are now closed.</em></span>
   <% end -%>
-</div>

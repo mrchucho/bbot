@@ -11,14 +11,12 @@ class CommentsController < ApplicationController
     @comments = @post.comments.find(:all)
     respond_to do |format|
       format.html
-      # format.xml  { render :xml => @comments }
     end
   end
 
   def show
     respond_to do |format|
       format.html 
-      # format.xml  { render :xml => @comment }
     end
   end
 
@@ -26,7 +24,6 @@ class CommentsController < ApplicationController
     @comment = @post.comments.build
     respond_to do |format|
       format.html
-      # format.xml  { render :xml => @comment }
     end
   end
 
@@ -36,13 +33,9 @@ class CommentsController < ApplicationController
   def create
     @comment = @post.comments.build(params[:comment])
     respond_to do |format|
-      begin
-        @comment.save!
-        format.html { redirect_to permalink_path(@post.permalink) }
-        # format.xml  { render :xml => @comment, :status => :created, :location => @comment }
-      rescue ActiveRecord::RecordInvalid 
-        format.html { render :action => 'warning' }
-      end
+      @comment.save!
+      flash[:notice] = "Your comment has been submitted and is awaiting moderation."
+      format.html { redirect_to permalink_path(@post.permalink) }
     end
   end
 
@@ -50,7 +43,6 @@ class CommentsController < ApplicationController
     respond_to do |format|
       @comment.update_attributes!(params[:comment])
       format.html { redirect_to post_comment_url(@post,@comment) }
-      # format.xml  { head :ok }
     end
   end
 
@@ -58,7 +50,6 @@ class CommentsController < ApplicationController
     @comment.destroy
     respond_to do |format|
       format.html { redirect_to(post_comments_url(@post)) }
-      # format.xml  { head :ok }
     end
   end
 private
