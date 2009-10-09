@@ -6,26 +6,13 @@ class PagesController < ApplicationController
 
   def index
     @pages = Page.find(:all)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @pages }
-    end
   end
 
   def show
-    respond_to do |format|
-      format.html 
-      format.xml  { render :xml => @page }
-    end
   end
 
   def new
     @page = Page.new
-    respond_to do |format|
-      format.html 
-      format.xml  { render :xml => @page }
-    end
   end
 
   def edit
@@ -36,7 +23,6 @@ class PagesController < ApplicationController
     respond_to do |format|
       @page.save!
       format.html { redirect_to(page_path(@page.permalink)) }
-      format.xml  { render :xml => @page, :status => :created, :location => @page }
     end
   end
 
@@ -44,16 +30,13 @@ class PagesController < ApplicationController
     respond_to do |format|
       @page.update_attributes!(params[:page])
       format.html { redirect_to(page_path(@page.permalink)) }
-      format.xml  { head :ok }
     end
   end
 
   def destroy
     @page.destroy
-
     respond_to do |format|
       format.html { redirect_to(pages_url) }
-      format.xml  { head :ok }
     end
   end
 
