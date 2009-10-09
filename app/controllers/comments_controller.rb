@@ -1,33 +1,8 @@
 class CommentsController < ApplicationController
-  before_filter :login_required, :except => :create
   before_filter :find_post
-  before_filter :find_comment, :only => [:show,:edit,:update,:destroy,:moderate]
-  before_filter :protect_from_spam, :only => [:create,:update]
-  before_filter :restrict_closed_posts, :only => [:create,:update]
-  cache_sweeper :post_sweeper, :only => [:create,:update,:destroy,:moderate]
-
-  def index
-    @comments = @post.comments.find(:all)
-    respond_to do |format|
-      format.html
-    end
-  end
-
-  def show
-    respond_to do |format|
-      format.html 
-    end
-  end
-
-  def new
-    @comment = @post.comments.build
-    respond_to do |format|
-      format.html
-    end
-  end
-
-  def edit
-  end
+  before_filter :protect_from_spam
+  before_filter :restrict_closed_posts
+  cache_sweeper :post_sweeper
 
   def create
     @comment = @post.comments.build(params[:comment])
@@ -38,25 +13,9 @@ class CommentsController < ApplicationController
     end
   end
 
-  def update
-    respond_to do |format|
-      @comment.update_attributes!(params[:comment])
-      format.html { redirect_to post_comment_url(@post,@comment) }
-    end
-  end
-
-  def destroy
-    @comment.destroy
-    respond_to do |format|
-      format.html { redirect_to(post_comments_url(@post)) }
-    end
-  end
 private
   def find_post
     @post = Post.find_by_permalink(params)
-  end
-  def find_comment
-    @comment = @post.comments.find(params[:id])
   end
   def protect_from_spam
     head(:forbidden) unless params.key?(:_key) && params[:_key].blank?

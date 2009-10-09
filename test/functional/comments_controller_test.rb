@@ -1,45 +1,17 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class CommentsControllerTest < ActionController::TestCase
-  def test_should_get_index
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:comments)
-  end
+class CommentsController
+  def rescue_action(e) raise e end
+  def protect_from_spam; end
+end
 
-  def test_should_get_new
-    get :new
-    assert_response :success
-  end
+class CommentsControllerTest < ActionController::TestCase
 
   def test_should_create_comment
-    assert_difference('Comment.count') do
-      post :create, :comment => { }
+    p = posts(:sample_post)
+    assert_difference('p.comments.unmoderated.count') do
+      post :create, p.permalink.merge(:comment => {:author => "Author"})
     end
-
-    assert_redirected_to comment_path(assigns(:comment))
-  end
-
-  def test_should_show_comment
-    get :show, :id => comments(:one).id
-    assert_response :success
-  end
-
-  def test_should_get_edit
-    get :edit, :id => comments(:one).id
-    assert_response :success
-  end
-
-  def test_should_update_comment
-    put :update, :id => comments(:one).id, :comment => { }
-    assert_redirected_to comment_path(assigns(:comment))
-  end
-
-  def test_should_destroy_comment
-    assert_difference('Comment.count', -1) do
-      delete :destroy, :id => comments(:one).id
-    end
-
-    assert_redirected_to comments_path
+    assert_redirected_to permalink_path(p.permalink)
   end
 end
