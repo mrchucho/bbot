@@ -17,7 +17,11 @@ class Page < ActiveRecord::Base
     unless has_attachment?
       {:inline => body}
     else
-      {:file => "/pages/#{attachment}"}
+      if FileTest.exists?(File.join(Rails.root, "app", "views", "pages", attachment))
+        {:file => "/pages/#{attachment}"}
+      else
+        {:text => "Content Missing"}
+      end
     end
   end
 

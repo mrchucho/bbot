@@ -13,3 +13,7 @@ about:
   title: about
   attachment: ""
 
+attachment_page:
+  body: ""
+  title: page_with_attachment
+  attachment: show.html.erb

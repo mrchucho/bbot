@@ -18,11 +18,18 @@ class PageTest < ActiveSupport::TestCase
     end
   end
 
-  def test_content_attachment
-    page = pages(:projects)
+  def test_content_with_attachment
+    page = pages(:attachment_page)
 
     assert page.has_attachment?
     assert_equal({:file => "/pages/#{page.attachment}"}, page.content)
+  end
+
+  def test_content_with_missing_attachment
+    page = pages(:projects)
+
+    assert page.has_attachment?
+    assert_equal({:text => "Content Missing"}, page.content)
   end
 
   def test_content_no_attachment
