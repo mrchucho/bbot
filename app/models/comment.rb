@@ -4,7 +4,7 @@ class Comment < ActiveRecord::Base
   before_destroy :decrement_moderated_comments_counter
 
   attr_protected :post_id,:body,:moderated
-  validates_presence_of :author
+  validates_presence_of :author, :body_raw
 
   named_scope :moderated, :conditions => {:moderated => true}
   named_scope :unmoderated, :conditions => {:moderated => false}
@@ -18,7 +18,6 @@ class Comment < ActiveRecord::Base
 
 private
   def convert_body
-    return if self.body_raw.blank?
     self.body = RedCloth.new(self.body_raw,[:filter_html]).to_html
   end
 

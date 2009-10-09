@@ -4,6 +4,8 @@ class Post < ActiveRecord::Base
   before_save :create_slug
   attr_protected :body
 
+  validates_presence_of :title, :body_raw
+
   named_scope :published, :conditions => {:published => true}
   named_scope :unpublished, :conditions => {:published => false}
   named_scope :by_newest_first, :order => "created_at DESC"

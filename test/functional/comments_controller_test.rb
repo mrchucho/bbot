@@ -10,7 +10,7 @@ class CommentsControllerTest < ActionController::TestCase
   def test_should_create_comment
     p = posts(:sample_post)
     assert_difference('p.comments.unmoderated.count') do
-      post :create, p.permalink.merge(:comment => {:author => "Author"})
+      post :create, p.permalink.merge(:comment => {:author => "Author", :body_raw => "A Comment."})
     end
     assert_redirected_to permalink_path(p.permalink)
   end
