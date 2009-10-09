@@ -12,6 +12,19 @@ class UsersControllerTest < ActionController::TestCase
     @response   = ActionController::TestResponse.new
   end
 
+  # NOTE User Mgmt. not allowed via web
+  def test_should_forbid_new
+    get :new
+    assert_response :forbidden
+  end
+
+  def test_should_forbid_create
+    post :create
+    assert_response :forbidden
+  end
+
+  # These are the test that ship w/ restful_authentication
+=begin
   def test_should_allow_signup
     assert_difference 'User.count' do
       create_user
@@ -50,7 +63,7 @@ class UsersControllerTest < ActionController::TestCase
       assert_response :success
     end
   end
-  
+=end  
 
   protected
     def create_user(options = {})

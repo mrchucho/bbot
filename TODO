@@ -1,3 +1,5 @@
+* Added route tests
+* Javascript flash
 * Fix routes/paths such that Posts are only referenced by permalink...
 * Drafts: #index should use the proper post permalink URLs.
 * etag support 
