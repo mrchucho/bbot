@@ -2,7 +2,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :session
   map.resources :users
   map.resources :drafts, :only => :index
-  map.resources :moderations
+  map.resources :moderations, :except => [:new, :edit]
   map.resources :pages
 
   map.with_options :controller => 'posts',:action => 'index' do |page|
