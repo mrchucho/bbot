@@ -1,11 +1,15 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+contact:
+  body: mrchucho at mrchucho dot net
+  title: contact
+  attachment: ""
 
-one:
-  title: MyString
-  body: MyText
-  attachment: false
+projects:
+  body: ""
+  title: projects
+  attachment: projects.html.erb
 
-two:
-  title: MyString
-  body: MyText
-  attachment: false
+about:
+  body: "This is about mrchucho"
+  title: about
+  attachment: ""
+
