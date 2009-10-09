@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   cache_sweeper :post_sweeper, :only => [:create,:update,:destroy]
   
   def index
-    @posts = Post.paginate_published(:all,:page => params[:page],:order => 'created_at desc')
+    @posts = Post.published.by_newest_first.paginate(:all, :page => params[:page])
     respond_to do |format|
       format.html
       format.xml  { render :xml => @posts }

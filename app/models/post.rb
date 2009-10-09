@@ -4,17 +4,10 @@ class Post < ActiveRecord::Base
   before_save :create_slug
   attr_protected :body
 
-  def Post.find_published(*args)
-    with_scope(:find => {:conditions => {:published => true}}) do
-      find(*args)
-    end
-  end
-
-  def Post.find_unpublished(*args)
-    with_scope(:find => {:conditions => {:published => false}}) do
-      find(*args)
-    end
-  end
+  named_scope :published, :conditions => {:published => true}
+  named_scope :unpublished, :conditions => {:published => false}
+  named_scope :by_newest_first, :order => "created_at DESC"
+  named_scope :by_oldest_first, :order => "created_at ASC"
 
   def Post.per_page
     10

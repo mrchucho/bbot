@@ -2,6 +2,18 @@ require File.dirname(__FILE__) + '/../test_helper'
 
 class PostTest < ActiveSupport::TestCase
 
+  def test_published
+    p = Post.published.find(:all)
+    assert !p.empty?
+    assert !p.any?{|p| p.published == false}
+  end
+
+  def test_unpublished
+    p = Post.unpublished.find(:all)
+    assert !p.empty?
+    assert !p.any?{|p| p.published == true}
+  end
+
   def test_one_post_matching_permalink
     post = posts(:unique_slug)
 
