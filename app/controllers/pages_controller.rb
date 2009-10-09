@@ -1,7 +1,6 @@
 class PagesController < ApplicationController
   before_filter :login_required, :except => [:index,:show]
   before_filter :find_page, :only => %w(show edit update destroy)
-  session :off, :only => %w(index show)
   caches_page :index, :show
   cache_sweeper :page_sweeper, :only => %w(create update destroy)
 
