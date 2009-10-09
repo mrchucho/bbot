@@ -1,17 +1,18 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+sample_post_moderated_comment:
+  moderated: true
+  author: Author 
+  body: <p>Templates are <strong>funky</strong>.</p>
+  body_raw: Templates are *funky*.
+  post: sample_post
+  author_email: ""
+  author_site: ""
 
-one:
-  post_id: 1
-  author: MyString
-  author_email: MyString
+sample_post_unmoderated_comment:
   moderated: false
-  body: MyText
-  body_raw: MyText
+  author: Author
+  body: <p>Templates are <strong>funky</strong>.</p>
+  body_raw: Templates are *funky*.
+  post: sample_post
+  author_email: ""
+  author_site: ""
 
-two:
-  post_id: 1
-  author: MyString
-  author_email: MyString
-  moderated: false
-  body: MyText
-  body_raw: MyText

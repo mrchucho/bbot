@@ -1,7 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class PostTest < ActiveSupport::TestCase
-  fixtures :posts
 
   def test_one_post_matching_permalink
     post = posts(:unique_slug)

@@ -4,7 +4,7 @@ class ModerationsController < ApplicationController
   cache_sweeper :post_sweeper, :only => %w(update destroy)
 
   def index
-    @comments = Comment.find_unmoderated(:all,:include => :post)
+    @comments = Comment.unmoderated.find(:all, :include => :post)
   end
 
   def show
@@ -35,6 +35,6 @@ class ModerationsController < ApplicationController
   end
 private
   def find_comment
-    @comment = Comment.find_unmoderated(params[:id])
+    @comment = Comment.unmoderated.find(params[:id])
   end
 end

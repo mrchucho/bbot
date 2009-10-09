@@ -35,3 +35,13 @@ non_unique_slug_non_unique_date2:
   body: MyText
   body_raw: MyText
 
+sample_post:
+  slug: new-rails-234-post
+  category: 
+  body: <p><em>This</em> is a <strong>test</strong> of Rails 2.3.4</p>
+  body_raw: _This_ is a *test* of Rails 2.3.4
+  title: New Rails 2.3.4 Post
+  closed: false
+  published: true
+  moderated_comments_count: 1
+
