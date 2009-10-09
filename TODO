@@ -1,3 +1,4 @@
+* etag support 
 * Pages: some way to "include on front page"; also, if page.include_on_front_page? expire root/posts cache
 * Pages: delete the OLD page cache if title changes
 * Allow only quality outbound links (eg. rel="nofollow" on all user-generated links)
