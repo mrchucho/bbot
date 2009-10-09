@@ -7,8 +7,8 @@
    <title><%= yield :title %></title>
    <%= stylesheet_link_tag 'reset-fonts-grids','bbot', :cache => 'styles' %>
 
-   <%= auto_discovery_link_tag(:rss,  formatted_posts_url(:rss)) %>
-   <%= auto_discovery_link_tag(:atom, formatted_posts_url(:atom)) %>
+   <%= auto_discovery_link_tag(:rss,  posts_url(:rss)) %>
+   <%= auto_discovery_link_tag(:atom, posts_url(:atom)) %>
  </head>
  <body>
    <div id="doc" class="yui-t4">
@@ -44,8 +44,8 @@
      <div id="ft">
      </div>
    </div>
-   <%= link_to 'atom', formatted_posts_url(:format => :atom) %>
-   <%= link_to 'rss', formatted_posts_url(:format => :rss) %>
+   <%= link_to 'atom', posts_url(:format => :atom) %>
+   <%= link_to 'rss', posts_url(:format => :rss) %>
  </body>
 </html>
 

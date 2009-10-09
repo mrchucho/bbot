@@ -2,7 +2,7 @@
 
 <% if flash[:notice] %><div id="flash" class="notice"><%= flash[:notice] %></div><% end %>
 
-<%= render :partial => 'post' %>
+  <%= render :partial => 'post', :locals => {:post => @post} %>
 
 <h3 id="post_comments_header">Responses to &quot;<%=h @post.title%>&quot;</h3>
 <% unless @post.comments.moderated.empty? -%>
@@ -12,7 +12,7 @@
 <% end -%>
 
   <% unless @post.closed? -%>
-    <%= render 'comments/new' %>
+    <%= render :file => "comments/new" %>
   <% else -%>
     <span><em>Comments are now closed.</em></span>
   <% end -%>
