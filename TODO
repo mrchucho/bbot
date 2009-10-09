@@ -1,3 +1,5 @@
+* Fix routes/paths such that Posts are only referenced by permalink...
+* Drafts: #index should use the proper post permalink URLs.
 * etag support 
 * Pages: some way to "include on front page"; also, if page.include_on_front_page? expire root/posts cache
 * Pages: delete the OLD page cache if title changes

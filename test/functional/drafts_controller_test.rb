@@ -1,8 +1,12 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class DraftsControllerTest < ActionController::TestCase
-  # Replace this with your real tests.
-  def test_truth
-    assert true
+
+  def test_index
+    login_as(:quentin)
+    get :index
+    assert_response :success
+    assert_not_nil(assigns(:posts))
+    assert !assigns(:posts).any?{|p| p.published?}
   end
 end
