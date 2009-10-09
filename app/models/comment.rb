@@ -18,6 +18,7 @@ class Comment < ActiveRecord::Base
 
 private
   def convert_body
+    return if self.body_raw.blank?
     self.body = RedCloth.new(self.body_raw,[:filter_html]).to_html
   end
 
